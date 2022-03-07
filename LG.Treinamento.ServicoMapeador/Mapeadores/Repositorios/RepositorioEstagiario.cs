@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace LG.Treinamento.ServicoMapeador.Mapeadores.Repositorios
 {
-    public class RepositorioEstagiario
+    internal class RepositorioEstagiario
     {
 
     }

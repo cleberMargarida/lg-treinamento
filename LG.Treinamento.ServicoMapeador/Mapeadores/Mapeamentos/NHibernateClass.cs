@@ -13,11 +13,13 @@ namespace LG.Treinamento.ServicoMapeador.Mapeadores.Mapeamentos
 {
     public class NHibernateClass
     {
+
         private static ISession session;
         private static ISessionFactory sessionFactory;
-        private ISessionFactory SessionFactory 
-        { 
-            get 
+
+        private ISessionFactory SessionFactory
+        {
+            get
             {
                 return sessionFactory ?? (sessionFactory = Fluently.Configure()
                                .Database(MsSqlConfiguration.MsSql2012
@@ -36,17 +38,15 @@ namespace LG.Treinamento.ServicoMapeador.Mapeadores.Mapeamentos
                                     .AddFromAssembly(Assembly.GetExecutingAssembly()
                                     ))
                                .BuildSessionFactory());
-            } 
+            }
         }
 
-        public ISession Session 
+        public ISession Session
         {
             get
             {
                 return session ?? (session = SessionFactory.OpenSession());
             }
         }
-
-        
     }
 }
