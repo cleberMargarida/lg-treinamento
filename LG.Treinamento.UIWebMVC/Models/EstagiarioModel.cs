@@ -6,6 +6,6 @@
        
         public string Nome { get; set; }
         
-        public TurmaModel IdTurma { get; set; }
+        public TurmaModel Turma { get; set; }
     }
 }

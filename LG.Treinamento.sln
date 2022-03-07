@@ -5,7 +5,11 @@ VisualStudioVersion = 17.2.32210.308
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LG.Treinamento.UIWebMVC", "LG.Treinamento.UIWebMVC\LG.Treinamento.UIWebMVC.csproj", "{5ACEF348-794A-417D-91FE-1546C23B76B6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LG.Treinamento.ServicoMapeador", "LG.Treinamento.ServicoMapeador\LG.Treinamento.ServicoMapeador.csproj", "{725B89B8-8F03-41E3-A49E-EDCF8DF7D97B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LG.Treinamento.ServicoMapeador", "LG.Treinamento.ServicoMapeador\LG.Treinamento.ServicoMapeador.csproj", "{725B89B8-8F03-41E3-A49E-EDCF8DF7D97B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LG.Treinamento.Negocio", "LG.Treinamento.Negocio\LG.Treinamento.Negocio.csproj", "{BA8C2FB2-E9B5-4840-8618-D3D1D6D69932}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LG.Treinamento.InterfacesFabricas", "LG.Treinamento.InterfacesFabricas\LG.Treinamento.InterfacesFabricas.csproj", "{E32624C2-0164-4737-A555-1B1AFF427641}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +25,14 @@ Global
 		{725B89B8-8F03-41E3-A49E-EDCF8DF7D97B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{725B89B8-8F03-41E3-A49E-EDCF8DF7D97B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{725B89B8-8F03-41E3-A49E-EDCF8DF7D97B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BA8C2FB2-E9B5-4840-8618-D3D1D6D69932}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BA8C2FB2-E9B5-4840-8618-D3D1D6D69932}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BA8C2FB2-E9B5-4840-8618-D3D1D6D69932}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BA8C2FB2-E9B5-4840-8618-D3D1D6D69932}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E32624C2-0164-4737-A555-1B1AFF427641}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E32624C2-0164-4737-A555-1B1AFF427641}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E32624C2-0164-4737-A555-1B1AFF427641}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E32624C2-0164-4737-A555-1B1AFF427641}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

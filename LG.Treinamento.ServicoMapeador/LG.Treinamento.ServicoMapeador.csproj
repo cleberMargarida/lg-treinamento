@@ -5,12 +5,13 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Mapeadores\Repositorios\" />
+    <PackageReference Include="FluentNHibernate" Version="3.1.0" />
+    <PackageReference Include="NHibernate" Version="5.3.11" />
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="FluentNHibernate" Version="3.1.0" />
-    <PackageReference Include="NHibernate" Version="5.3.11" />
+    <ProjectReference Include="..\LG.Treinamento.InterfacesFabricas\LG.Treinamento.InterfacesFabricas.csproj" />
+    <ProjectReference Include="..\LG.Treinamento.Negocio\LG.Treinamento.Negocio.csproj" />
   </ItemGroup>
 
 </Project>
