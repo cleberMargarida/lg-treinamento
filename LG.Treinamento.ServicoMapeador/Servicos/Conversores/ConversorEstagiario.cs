@@ -1,16 +1,12 @@
 ﻿using LG.Treinamento.InterfacesFabricas.ContratosDeServicos.Dados;
 using LG.Treinamento.Negocio.Objetos;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using LG.Treinamento.ServicoMapeador.Utilitarios;
 
 namespace LG.Treinamento.ServicoMapeador.Servicos.Conversores
 {
     public class ConversorEstagiario
     {
-        private ConversorTurma conversorTurma;
+        private readonly ConversorTurma conversorTurma;
 
         public ConversorEstagiario(ConversorTurma conversorTurma)
         {
@@ -23,7 +19,6 @@ namespace LG.Treinamento.ServicoMapeador.Servicos.Conversores
             {
                 Id = objeto.Id,
                 Nome = objeto.Nome,
-                Turma = conversorTurma.Converta(objeto.Turma)
             };
         }
 
@@ -32,8 +27,7 @@ namespace LG.Treinamento.ServicoMapeador.Servicos.Conversores
             return new Estagiario
             {
                 Id = dto.Id,
-                Nome = dto.Nome,
-                Turma = conversorTurma.Converta(dto.Turma)
+                Nome = dto.
             };
         }
     }

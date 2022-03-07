@@ -1,10 +1,6 @@
 ﻿using LG.Treinamento.InterfacesFabricas.ContratosDeServicos.Dados;
 using LG.Treinamento.Negocio.Objetos;
-using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace LG.Treinamento.ServicoMapeador.Servicos.Conversores
 {
@@ -16,7 +12,8 @@ namespace LG.Treinamento.ServicoMapeador.Servicos.Conversores
             {
                 Id = objeto.Id,
                 Nome = objeto.Nome,
-                
+                Estagiarios = objeto.Estagiarios.Select(dto => new DTOEstagiario { Id = dto.Id, Nome = dto.Nome })
+                                             .ToList()
             };
         }
         public Turma Converta(DTOTurma dto)
@@ -25,7 +22,8 @@ namespace LG.Treinamento.ServicoMapeador.Servicos.Conversores
             {
                 Id = dto.Id,
                 Nome = dto.Nome,
-
+                Estagiarios = dto.Estagiarios.Select(dto => new Estagiario { Id = dto.Id, Nome = dto.Nome})
+                                             .ToList()
             };
         }
     }
