@@ -15,8 +15,16 @@ namespace LG.Treinamento.ServicoMapeador.Mapeadores.Mapeamentos
             Table("estagiario");
             Id(x => x.Id);
             Map(x => x.Nome);
-            Component(x => x.Endereco, endMap => endMap.Map(end => end.Id, "IdEndereco"));
+            Component(x => x.Endereco, y => 
+            {
+                y.Map(end => end.Id, "enderecoid");
+                y.Map(end => end.EnderecoCompleto, "enderecoCompleto");
+            });
             References(x => x.Turma, "idTurma");
+
+            //HasManyToMany();
+            //HasOne
+
         }
     }
 }
