@@ -11,6 +11,7 @@ namespace LG.Treinamento.Negocio.Objetos
         public virtual int Id { get; set; }
 
         public virtual string Nome { get; set; }
+        public virtual Endereco Endereco { get; set; }
 
         public virtual Turma Turma { get; set; }
     }
