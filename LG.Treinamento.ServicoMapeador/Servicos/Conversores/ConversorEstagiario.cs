@@ -19,7 +19,12 @@ namespace LG.Treinamento.ServicoMapeador.Servicos.Conversores
             {
                 Id = objeto.Id,
                 Nome = objeto.Nome,
-                Turma = conversorTurma.Converta(objeto.Turma)
+                Turma = conversorTurma.Converta(objeto.Turma),
+                Endereco = new DTOEndereco
+                {
+                    Id = objeto.Endereco.Id,
+                    EnderecoCompleto = objeto.Endereco.EnderecoCompleto
+                }
             };
         }
 
@@ -28,7 +33,12 @@ namespace LG.Treinamento.ServicoMapeador.Servicos.Conversores
             return new Estagiario
             {
                 Id = dto.Id,
-                Nome = dto.Nome
+                Nome = dto.Nome,
+                Endereco = new Endereco
+                {
+                    Id = dto.Endereco.Id,
+                    EnderecoCompleto = dto.Endereco.EnderecoCompleto
+                }
             };
         }
     }

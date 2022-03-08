@@ -15,7 +15,7 @@ namespace LG.Treinamento.ServicoMapeador.Mapeadores.Mapeamentos
             Table("Turma");
             Id(x => x.Id);
             Map(x => x.Nome);
-            HasMany(x => x.Estagiarios).Inverse();
+            HasMany(x => x.Estagiarios);
         }
     }
 }

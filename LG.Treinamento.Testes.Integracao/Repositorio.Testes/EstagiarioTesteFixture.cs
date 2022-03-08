@@ -36,8 +36,8 @@ namespace LG.Treinamento.Testes.Integracao.Repositorio.Testes
 
                 turma.Estagiarios = new List<Estagiario> { estagiario };
 
-                session.Save(estagiario);
                 session.Save(turma);
+                session.Save(estagiario);
                 transacao.Commit();
 
             }
