@@ -13,7 +13,7 @@ using System.Threading.Tasks;
 
 namespace LG.Treinamento.Testes.Integracao.Repositorio.Testes
 {
-    public class DataBaseEmMemoria
+    public class DataBaseEmMemoria : System.IDisposable
     {
         protected ISession session;
         private ISessionFactory sessionFactory;
@@ -39,6 +39,11 @@ namespace LG.Treinamento.Testes.Integracao.Repositorio.Testes
         }
 
         ~DataBaseEmMemoria()
+        {
+            session.Dispose();
+        }
+
+        public void Dispose()
         {
             session.Dispose();
         }

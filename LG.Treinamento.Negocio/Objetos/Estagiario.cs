@@ -8,10 +8,10 @@ namespace LG.Treinamento.Negocio.Objetos
 {
     public class Estagiario
     {
-        public int Id { get; set; }
+        public virtual int Id { get; set; }
 
-        public string Nome { get; set; }
+        public virtual string Nome { get; set; }
 
-        public Turma Turma { get; set; }
+        public virtual Turma Turma { get; set; }
     }
 }

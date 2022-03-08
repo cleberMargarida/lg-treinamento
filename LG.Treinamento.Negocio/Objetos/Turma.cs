@@ -4,10 +4,10 @@ namespace LG.Treinamento.Negocio.Objetos
 {
     public class Turma
     {
-        public int Id { get; set; }
+        public virtual int Id { get; set; }
 
-        public string Nome { get; set; }
+        public virtual string Nome { get; set; }
 
-        public IList<Estagiario> Estagiarios { get; set; }
+        public virtual IList<Estagiario> Estagiarios { get; set; }
     }
 }

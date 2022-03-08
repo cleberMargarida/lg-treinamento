@@ -1,4 +1,6 @@
-﻿using LG.Treinamento.ServicoMapeador.Mapeadores.Mapeamentos;
+﻿using LG.Treinamento.Negocio.Objetos;
+using LG.Treinamento.ServicoMapeador.Mapeadores.Mapeamentos;
+using NUnit.Framework;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,7 +14,33 @@ namespace LG.Treinamento.Testes.Integracao.Repositorio.Testes
     {
         public EstagiarioTesteFixture() : base(typeof(EstagiarioMap).Assembly)
         {
-            
+
+        }
+
+        [Test]
+        public void PodeSalvarEstagiario()
+        {
+            using (var transacao = session.BeginTransaction())
+            {
+                var turma = new Turma
+                {
+                    Id = 1,
+                    Nome = "Cleber",
+                };
+                var estagiario = new Estagiario
+                {
+                    Id = 1,
+                    Nome = "Marcos",
+                    Turma = turma
+                };
+
+                turma.Estagiarios = new List<Estagiario> { estagiario };
+
+                session.Save(estagiario);
+                session.Save(turma);
+                transacao.Commit();
+
+            }
         }
 
 

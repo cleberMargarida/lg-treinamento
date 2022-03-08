@@ -19,6 +19,7 @@ namespace LG.Treinamento.ServicoMapeador.Servicos.Conversores
             {
                 Id = objeto.Id,
                 Nome = objeto.Nome,
+                Turma = conversorTurma.Converta(objeto.Turma)
             };
         }
 
@@ -27,7 +28,7 @@ namespace LG.Treinamento.ServicoMapeador.Servicos.Conversores
             return new Estagiario
             {
                 Id = dto.Id,
-                Nome = dto.
+                Nome = dto.Nome
             };
         }
     }
