@@ -25,5 +25,10 @@ namespace LG.Treinamento.ServicoMapeador.Utilitarios
                 acao(item);
             }
         }
+
+        public static void ToVoid(this Object o)
+        {
+
+        } 
     }
 }

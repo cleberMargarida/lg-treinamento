@@ -25,7 +25,7 @@ namespace LG.Treinamento.Testes.Integracao.RepositorioTestes
             {
                 var turma = new Turma
                 {
-                    Id = 1,
+               
                     Nome = "Cleber",
                     InformacoesComplementares = new Dictionary<string, string>
                     {
@@ -34,7 +34,7 @@ namespace LG.Treinamento.Testes.Integracao.RepositorioTestes
                 };
                 var estagiario = new Estagiario
                 {
-                    Id = 1,
+                    
                     Nome = "Marcos",
                     Turma = turma,
                     Endereco = new Endereco
