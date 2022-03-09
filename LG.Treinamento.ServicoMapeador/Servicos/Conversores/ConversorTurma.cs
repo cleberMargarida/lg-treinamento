@@ -13,7 +13,7 @@ namespace LG.Treinamento.ServicoMapeador.Servicos.Conversores
                 Id = objeto.Id,
                 Nome = objeto.Nome,
                 Estagiarios = objeto.Estagiarios.Select(dto => new DTOEstagiario { Id = dto.Id, Nome = dto.Nome })
-                                             .ToList()
+                                                .ToList()
             };
         }
         public Turma Converta(DTOTurma dto)

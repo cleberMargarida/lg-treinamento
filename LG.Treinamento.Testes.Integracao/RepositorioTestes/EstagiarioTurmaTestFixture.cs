@@ -1,4 +1,5 @@
-﻿using LG.Treinamento.Negocio.Objetos;
+﻿using FluentAssertions;
+using LG.Treinamento.Negocio.Objetos;
 using LG.Treinamento.ServicoMapeador.Mapeadores.Mapeamentos;
 using NUnit.Framework;
 using System;
@@ -8,17 +9,17 @@ using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace LG.Treinamento.Testes.Integracao.Repositorio.Testes
+namespace LG.Treinamento.Testes.Integracao.RepositorioTestes
 {
-    public class EstagiarioTesteFixture : DataBaseEmMemoria
+    public class EstagiarioTurmaTestFixture : DataBaseEmMemoria
     {
-        public EstagiarioTesteFixture() : base(typeof(EstagiarioMap).Assembly)
+        public EstagiarioTurmaTestFixture() : base(typeof(EstagiarioMap).Assembly)
         {
 
         }
 
         [Test]
-        public void PodeSalvarEstagiario()
+        public void PodeSalvarEObterEstagiarioETurma()
         {
             using (var transacao = session.BeginTransaction())
             {
@@ -31,18 +32,27 @@ namespace LG.Treinamento.Testes.Integracao.Repositorio.Testes
                 {
                     Id = 1,
                     Nome = "Marcos",
-                    Turma = turma
+                    Turma = turma,
+                    Endereco = new Endereco
+                    {
+                        Lote = 1,
+                        Quadra = 1,
+                        Numero = "1",
+                        Rua = "1",
+                    }
                 };
 
                 turma.Estagiarios = new List<Estagiario> { estagiario };
 
                 session.Save(turma);
                 session.Save(estagiario);
-                transacao.Commit();
 
+                var estagiarioSalvo = session.Get<Estagiario>(estagiario.Id);
+
+                estagiario.Should().Be(estagiarioSalvo);
+
+                transacao.Commit();
             }
         }
-
-
     }
 }

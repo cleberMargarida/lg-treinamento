@@ -11,7 +11,7 @@ using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace LG.Treinamento.Testes.Integracao.Repositorio.Testes
+namespace LG.Treinamento.Testes.Integracao.RepositorioTestes
 {
     public class DataBaseEmMemoria : System.IDisposable
     {
@@ -27,20 +27,15 @@ namespace LG.Treinamento.Testes.Integracao.Repositorio.Testes
                     .SetProperty(Environment.ConnectionDriver, typeof(SQLite20Driver).AssemblyQualifiedName)
                     .SetProperty(Environment.ConnectionString, "data source=:memory:")
                     .SetProperty(Environment.ProxyFactoryFactoryClass, typeof(ProxyFactoryFactory).AssemblyQualifiedName);
+
             sessionFactory = sessionFactory = Fluently.Configure(configurationHibernate)
-                            .Mappings(
-                            m => m
-                            .FluentMappings
-                            .AddFromAssembly(assemblyContendoMapeamento))
-                            .BuildSessionFactory();
+                            .Mappings(m => m.FluentMappings
+                                            .AddFromAssembly(assemblyContendoMapeamento))
+                                            .BuildSessionFactory();
 
             session = sessionFactory.OpenSession();
-            new SchemaExport(configurationHibernate).Execute(true, true, false, session.Connection, System.Console.Out);
-        }
 
-        ~DataBaseEmMemoria()
-        {
-            session.Dispose();
+            new SchemaExport(configurationHibernate).Execute(true, true, false, session.Connection, System.Console.Out);
         }
 
         public void Dispose()

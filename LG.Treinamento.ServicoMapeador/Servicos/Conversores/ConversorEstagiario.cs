@@ -1,6 +1,5 @@
 ﻿using LG.Treinamento.InterfacesFabricas.ContratosDeServicos.Dados;
 using LG.Treinamento.Negocio.Objetos;
-using LG.Treinamento.ServicoMapeador.Utilitarios;
 
 namespace LG.Treinamento.ServicoMapeador.Servicos.Conversores
 {
@@ -22,8 +21,10 @@ namespace LG.Treinamento.ServicoMapeador.Servicos.Conversores
                 Turma = conversorTurma.Converta(objeto.Turma),
                 Endereco = new DTOEndereco
                 {
-                    Id = objeto.Endereco.Id,
-                    EnderecoCompleto = objeto.Endereco.EnderecoCompleto
+                    Lote = objeto.Endereco.Lote,
+                    Quadra = objeto.Endereco.Quadra,
+                    Rua = objeto.Endereco.Rua,
+                    Numero = objeto.Endereco.Numero
                 }
             };
         }
@@ -36,8 +37,10 @@ namespace LG.Treinamento.ServicoMapeador.Servicos.Conversores
                 Nome = dto.Nome,
                 Endereco = new Endereco
                 {
-                    Id = dto.Endereco.Id,
-                    EnderecoCompleto = dto.Endereco.EnderecoCompleto
+                    Lote = dto.Endereco.Lote,
+                    Quadra = dto.Endereco.Quadra,
+                    Rua = dto.Endereco.Rua,
+                    Numero = dto.Endereco.Numero
                 }
             };
         }

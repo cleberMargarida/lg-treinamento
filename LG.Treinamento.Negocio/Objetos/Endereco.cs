@@ -8,7 +8,9 @@ namespace LG.Treinamento.Negocio.Objetos
 {
     public class Endereco
     {
-        public virtual int Id { get; set; }
-        public virtual string EnderecoCompleto { get; set; }
+        public virtual string Rua { get; set; }
+        public virtual int Quadra { get; set; }
+        public virtual int Lote { get; set; }
+        public virtual string Numero { get; set; }
     }
 }
