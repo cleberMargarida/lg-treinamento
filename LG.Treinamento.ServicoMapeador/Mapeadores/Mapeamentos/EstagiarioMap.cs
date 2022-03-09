@@ -28,9 +28,6 @@ namespace LG.Treinamento.ServicoMapeador.Mapeadores.Mapeamentos
 
             References(x => x.Turma, "idTurma");
 
-            //HasManyToMany();
-            //HasOne
-
         }
     }
 }

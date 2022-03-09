@@ -16,6 +16,17 @@ namespace LG.Treinamento.ServicoMapeador.Mapeadores.Mapeamentos
             Id(x => x.Id);
             Map(x => x.Nome);
             HasMany(x => x.Estagiarios);
+            HasMany(x => x.InformacoesComplementares)
+                .KeyColumn("idTurma")
+                .AsMap<string>("chave")
+                .Element("valor");
+            Join("Professor",
+                x =>
+                {
+                    x.KeyColumn("idTurma");
+                    x.Map(y => y.Professor, "nome");
+                    x.Optional();
+                });
         }
     }
 }

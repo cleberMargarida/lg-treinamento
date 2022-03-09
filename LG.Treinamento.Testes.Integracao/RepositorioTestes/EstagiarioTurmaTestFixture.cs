@@ -27,6 +27,10 @@ namespace LG.Treinamento.Testes.Integracao.RepositorioTestes
                 {
                     Id = 1,
                     Nome = "Cleber",
+                    InformacoesComplementares = new Dictionary<string, string>
+                    {
+                        {"DiaInicio", "07/03"}
+                    }
                 };
                 var estagiario = new Estagiario
                 {
@@ -50,6 +54,10 @@ namespace LG.Treinamento.Testes.Integracao.RepositorioTestes
                 var estagiarioSalvo = session.Get<Estagiario>(estagiario.Id);
 
                 estagiario.Should().Be(estagiarioSalvo);
+
+                var turmaSalva = session.Get<Turma>(turma.Id);
+
+                turma.Should().Be(turmaSalva);
 
                 transacao.Commit();
             }

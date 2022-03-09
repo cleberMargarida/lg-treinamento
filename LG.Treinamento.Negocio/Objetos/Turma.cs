@@ -8,8 +8,10 @@ namespace LG.Treinamento.Negocio.Objetos
 
         public virtual string Nome { get; set; }
 
+        public virtual string Professor { get; set; }
+
         public virtual IList<Estagiario> Estagiarios { get; set; }
 
-        public virtual IDictionary<string, IList<string>> InformacoesComplementares { get; set; }
+        public virtual IDictionary<string, string> InformacoesComplementares { get; set; }
     }
 }
