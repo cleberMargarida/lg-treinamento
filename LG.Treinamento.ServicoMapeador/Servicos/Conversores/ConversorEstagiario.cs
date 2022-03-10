@@ -1,5 +1,7 @@
 ﻿using LG.Treinamento.InterfacesFabricas.ContratosDeServicos.Dados;
 using LG.Treinamento.Negocio.Objetos;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace LG.Treinamento.ServicoMapeador.Servicos.Conversores
 {
@@ -43,6 +45,48 @@ namespace LG.Treinamento.ServicoMapeador.Servicos.Conversores
                     Numero = dto.Endereco.Numero
                 }
             };
+        }
+
+        public IList<Estagiario> Converta(IList<DTOEstagiario> estagiarios)
+        {
+            return estagiarios.Select(estagiario => new Estagiario
+            {
+                Nome = estagiario.Nome,
+                Id = estagiario.Id,
+                Endereco = new Endereco
+                {
+                    Lote = estagiario.Endereco.Lote,
+                    Numero = estagiario.Endereco.Numero,
+                    Quadra = estagiario.Endereco.Quadra,
+                    Rua = estagiario.Endereco.Rua
+                },
+                Turma = new Turma
+                {
+                    Id = estagiario.Turma.Id,
+                    Nome = estagiario.Turma.Nome
+                }
+            }).ToList();
+        }
+
+        public IList<DTOEstagiario> Converta(IList<Estagiario> estagiarios)
+        {
+            return estagiarios.Select(estagiario => new DTOEstagiario
+            {
+                Nome = estagiario.Nome,
+                Id = estagiario.Id,
+                Endereco = new DTOEndereco
+                {
+                    Lote = estagiario.Endereco.Lote,
+                    Numero = estagiario.Endereco.Numero,
+                    Quadra = estagiario.Endereco.Quadra,
+                    Rua = estagiario.Endereco.Rua
+                },
+                Turma = new DTOTurma
+                {
+                    Id = estagiario.Turma.Id,
+                    Nome = estagiario.Turma.Nome
+                }
+            }).ToList();
         }
     }
 }
