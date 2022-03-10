@@ -18,21 +18,13 @@ namespace LG.Treinamento.ServicoMapeador.Servicos.ContratosImplementados
 
         public ServiceTurma(IRepositorioGenerico<Turma> repositorio, ConversorTurma conversor)
         {
-            this.repositorio=repositorio;
-            this.conversor=conversor;
+            this.repositorio = repositorio;
+            this.conversor = conversor;
         }
 
-        public void Create(DTOTurma turma)
-        {
-            var objeto = conversor.Converta(turma);
-            repositorio.Create(objeto);
-        }
-
-        public void Delete(DTOTurma turma)
-        {
-            var objeto = conversor.Converta(turma);
-            repositorio.Delete(objeto);
-        }
+        public void Create(DTOTurma turma) => Acao(x => x.Create(conversor.Converta(turma)));
+        public void Delete(DTOTurma turma) => Acao(x => x.Delete(conversor.Converta(turma)));
+        public void Update(DTOTurma turma) => Acao(x => x.Update(conversor.Converta(turma)));
 
         public IList<DTOTurma> GetAll()
         {
@@ -46,10 +38,9 @@ namespace LG.Treinamento.ServicoMapeador.Servicos.ContratosImplementados
             return conversor.Converta(resultado);
         }
 
-        public void Update(DTOTurma turma)
+        private void Acao(Action<IRepositorioGenerico<Turma>> acao)
         {
-            var objeto = conversor.Converta(turma);
-            repositorio.Update(objeto);
+            acao(repositorio);
         }
     }
 }
