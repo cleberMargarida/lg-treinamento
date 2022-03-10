@@ -21,17 +21,10 @@ namespace LG.Treinamento.ServicoMapeador.Servicos.ContratosImplementados
             this.repositorio=repositorio;
             this.conversor=conversor;
         }
-        public void Create(DTOEstagiario estagiario)
-        {
-            var objeto = conversor.Converta(estagiario);
-            repositorio.Create(objeto);
-        }
+        public void Create(DTOEstagiario estagiario) => Acao(x => x.Create(conversor.Converta(estagiario)));
 
-        public void Delete(DTOEstagiario estagiario)
-        {
-            var objeto = conversor.Converta(estagiario);
-            repositorio.Delete(objeto);
-        }
+        public void Delete(DTOEstagiario estagiario) => Acao(x => x.Delete(conversor.Converta(estagiario)));
+        public void Update(DTOEstagiario estagiario) => Acao(x => x.Update(conversor.Converta(estagiario)));
 
         public IList<DTOEstagiario> GetAll()
         {
@@ -45,10 +38,10 @@ namespace LG.Treinamento.ServicoMapeador.Servicos.ContratosImplementados
             return conversor.Converta(resultado);
         }
 
-        public void Update(DTOEstagiario estagiario)
+
+        private void Acao(Action<IRepositorioGenerico<Estagiario>> acao)
         {
-            var objeto = conversor.Converta(estagiario);
-            repositorio.Update(objeto);
+            acao(repositorio);
         }
     }
 }
