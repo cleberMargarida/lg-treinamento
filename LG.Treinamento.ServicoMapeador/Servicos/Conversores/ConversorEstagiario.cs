@@ -9,6 +9,11 @@ namespace LG.Treinamento.ServicoMapeador.Servicos.Conversores
     {
         public DTOEstagiario Converta(Estagiario objeto)
         {
+            if (objeto == null || objeto.Count == 0)
+            {
+                return null;
+            }
+
             return new DTOEstagiario
             {
                 Id = objeto.Id,
@@ -26,6 +31,11 @@ namespace LG.Treinamento.ServicoMapeador.Servicos.Conversores
 
         public Estagiario Converta(DTOEstagiario dto)
         {
+            if (dto == null || dto.Count == 0)
+            {
+                return null;
+            }
+
             return new Estagiario
             {
                 Id = dto.Id,
@@ -43,6 +53,11 @@ namespace LG.Treinamento.ServicoMapeador.Servicos.Conversores
 
         public IList<Estagiario> Converta(IList<DTOEstagiario> estagiarios)
         {
+            if (estagiarios == null || estagiarios.Count == 0)
+            {
+                return null;
+            }
+
             return estagiarios.Select(estagiario => new Estagiario
             {
                 Nome = estagiario.Nome,
@@ -64,6 +79,11 @@ namespace LG.Treinamento.ServicoMapeador.Servicos.Conversores
 
         public IList<DTOEstagiario> Converta(IList<Estagiario> estagiarios)
         {
+            if(estagiarios == null || estagiarios.Count == 0)
+            {
+                return null;
+            }
+
             return estagiarios.Select(estagiario => new DTOEstagiario
             {
                 Nome = estagiario.Nome,
