@@ -14,6 +14,13 @@ namespace LG.Treinamento.UIWebMVC.Controllers
 {
     public class HomeController : Controller
     {
+        private readonly IServiceTurma service;
+
+        public HomeController(IServiceTurma service)
+        {
+            this.service = service;
+        }
+
         public IActionResult Index()
         {
             return View();

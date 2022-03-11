@@ -21,7 +21,6 @@ namespace LG.Treinamento.ServicoMapeador.Servicos.ContratosImplementados
 
         public void Create(DTOEstagiario estagiario) => Acao(x => x.Create(conversor.Converta(estagiario)));
         public void Delete(DTOEstagiario estagiario) => Acao(x => x.Delete(conversor.Converta(estagiario)));
-        
         public void Update(DTOEstagiario estagiario) => Acao(x => x.Update(conversor.Converta(estagiario)));
 
         public IList<DTOEstagiario> GetAll()
