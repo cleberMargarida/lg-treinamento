@@ -5,9 +5,6 @@ using LG.Treinamento.Negocio.Objetos;
 using LG.Treinamento.ServicoMapeador.Servicos.Conversores;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace LG.Treinamento.ServicoMapeador.Servicos.ContratosImplementados
 {
@@ -21,8 +18,8 @@ namespace LG.Treinamento.ServicoMapeador.Servicos.ContratosImplementados
             this.repositorio=repositorio;
             this.conversor=conversor;
         }
-        public void Create(DTOEstagiario estagiario) => Acao(x => x.Create(conversor.Converta(estagiario)));
 
+        public void Create(DTOEstagiario estagiario) => Acao(x => x.Create(conversor.Converta(estagiario)));
         public void Delete(DTOEstagiario estagiario) => Acao(x => x.Delete(conversor.Converta(estagiario)));
         
         public void Update(DTOEstagiario estagiario) => Acao(x => x.Update(conversor.Converta(estagiario)));
@@ -38,7 +35,6 @@ namespace LG.Treinamento.ServicoMapeador.Servicos.ContratosImplementados
             var resultado = repositorio.Get(id);
             return conversor.Converta(resultado);
         }
-
 
         private void Acao(Action<IRepositorioGenerico<Estagiario>> acao)
         {
