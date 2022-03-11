@@ -33,6 +33,7 @@ namespace LG.Treinamento.ServicoMapeador.Mapeadores.Repositorios
         {
             using (var transacao = session.BeginTransaction())
             {
+                session.Clear();
                 acao(session);
                 transacao.Commit();
             }

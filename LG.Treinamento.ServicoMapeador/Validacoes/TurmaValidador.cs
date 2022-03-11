@@ -31,7 +31,7 @@ namespace LG.Treinamento.ServicoMapeador.Validacoes
 
         private bool EhNovo(string nome)
         {
-            return !serviceTurma.GetAll().Any(turma => turma.Nome == nome);
+            return !serviceTurma.GetAll().Any(x => x.Nome == nome);
         }
 
     }

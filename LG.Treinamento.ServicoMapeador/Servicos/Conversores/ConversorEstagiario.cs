@@ -9,7 +9,7 @@ namespace LG.Treinamento.ServicoMapeador.Servicos.Conversores
     {
         public DTOEstagiario Converta(Estagiario objeto)
         {
-            if (objeto == null || objeto.Count == 0)
+            if (objeto == null)
             {
                 return null;
             }
@@ -31,7 +31,7 @@ namespace LG.Treinamento.ServicoMapeador.Servicos.Conversores
 
         public Estagiario Converta(DTOEstagiario dto)
         {
-            if (dto == null || dto.Count == 0)
+            if (dto == null)
             {
                 return null;
             }
