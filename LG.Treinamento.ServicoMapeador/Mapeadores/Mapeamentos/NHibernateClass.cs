@@ -29,7 +29,7 @@ namespace LG.Treinamento.ServicoMapeador.Mapeadores.Mapeamentos
                                                                     connection.Server("localhost");
                                                                     connection.Database("Treinamento");
                                                                     connection.Username("sa");
-                                                                    connection.Password("123");
+                                                                    connection.Password("fpw");
                                                                 })
                                )
                                .Mappings(

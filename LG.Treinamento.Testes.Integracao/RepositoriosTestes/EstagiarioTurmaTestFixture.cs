@@ -2,20 +2,14 @@
 using LG.Treinamento.Negocio.Objetos;
 using LG.Treinamento.ServicoMapeador.Mapeadores.Mapeamentos;
 using NUnit.Framework;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Reflection;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace LG.Treinamento.Testes.Integracao.RepositorioTestes
+namespace LG.Treinamento.Testes.Integracao.RepositoriosTestes
 {
     public class EstagiarioTurmaTestFixture : DataBaseEmMemoria
     {
         public EstagiarioTurmaTestFixture() : base(typeof(EstagiarioMap).Assembly)
         {
-
         }
 
         [Test]
@@ -52,11 +46,9 @@ namespace LG.Treinamento.Testes.Integracao.RepositorioTestes
                 session.Save(estagiario);
 
                 var estagiarioSalvo = session.Get<Estagiario>(estagiario.Id);
-
                 estagiario.Should().Be(estagiarioSalvo);
 
                 var turmaSalva = session.Get<Turma>(turma.Id);
-
                 turma.Should().Be(turmaSalva);
 
                 transacao.Commit();

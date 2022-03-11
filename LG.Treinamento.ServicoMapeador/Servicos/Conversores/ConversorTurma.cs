@@ -50,5 +50,27 @@ namespace LG.Treinamento.ServicoMapeador.Servicos.Conversores
                 Estagiarios = conversorEstagiario.Converta(turma.Estagiarios)
             }).ToList();
         }
+
+        public static Turma ConvertaTurmaSemEstagiarios(DTOTurma turma)
+        {
+            return new Turma
+            {
+                Id = turma.Id,
+                Nome = turma.Nome,
+                Professor = turma.Professor,
+                InformacoesComplementares = turma.InformacoesComplementares,
+            };
+        }
+
+        public static DTOTurma ConvertaTurmaSemEstagiarios(Turma turma)
+        {
+            return new DTOTurma
+            {
+                Id = turma.Id,
+                Nome = turma.Nome,
+                Professor = turma.Professor,
+                InformacoesComplementares = turma.InformacoesComplementares,
+            };
+        }
     }
 }

@@ -1,4 +1,7 @@
-﻿using LG.Treinamento.UIWebMVC.Models;
+﻿using LG.Treinamento.InterfacesFabricas.ContratosDeServicos.Servicos;
+using LG.Treinamento.Negocio.Interfaces;
+using LG.Treinamento.Negocio.Objetos;
+using LG.Treinamento.UIWebMVC.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using System;
@@ -11,13 +14,6 @@ namespace LG.Treinamento.UIWebMVC.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
-
-        public HomeController(ILogger<HomeController> logger)
-        {
-            _logger = logger;
-        }
-
         public IActionResult Index()
         {
             return View();

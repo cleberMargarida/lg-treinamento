@@ -18,12 +18,9 @@ namespace LG.Treinamento.ServicoMapeador.Mapeadores.Repositorios
 
         public void Create(T entidade) => Realizar(s => s.Save(entidade).ToVoid());
         
-
         public void Delete(T entidade) => Realizar(s => s.Delete(entidade));            
         
-
         public void Update(T entidade) => Realizar(s => s.Update(entidade));
-
 
         public T Get(int id) => Realizar(s => s.Get<T>(id));
 

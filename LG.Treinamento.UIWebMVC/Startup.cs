@@ -1,13 +1,15 @@
+using LG.Treinamento.InterfacesFabricas.ContratosDeServicos.Servicos;
+using LG.Treinamento.Negocio.Interfaces;
+using LG.Treinamento.Negocio.Objetos;
+using LG.Treinamento.ServicoMapeador.Mapeadores.Mapeamentos;
+using LG.Treinamento.ServicoMapeador.Mapeadores.Repositorios;
+using LG.Treinamento.ServicoMapeador.Servicos.ContratosImplementados;
+using LG.Treinamento.ServicoMapeador.Servicos.Conversores;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace LG.Treinamento.UIWebMVC
 {
@@ -24,6 +26,13 @@ namespace LG.Treinamento.UIWebMVC
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
+            services.AddTransient(x => new NHibernateClass().Session);
+            services.AddTransient<IRepositorioGenerico<Estagiario>, RepositorioGenerico<Estagiario>>();
+            services.AddTransient<IRepositorioGenerico<Turma>, RepositorioGenerico<Turma>>();
+            services.AddSingleton<ConversorEstagiario>();
+            services.AddSingleton<ConversorTurma>();
+            services.AddScoped<IServiceEstagiario, ServiceEstagiario>();
+            services.AddScoped<IServiceTurma, ServiceTurma>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

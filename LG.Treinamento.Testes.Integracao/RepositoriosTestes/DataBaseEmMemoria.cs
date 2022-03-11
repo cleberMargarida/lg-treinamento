@@ -5,13 +5,9 @@ using NHibernate.Cfg;
 using NHibernate.Dialect;
 using NHibernate.Driver;
 using NHibernate.Tool.hbm2ddl;
-using System.Collections.Generic;
-using System.Linq;
 using System.Reflection;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace LG.Treinamento.Testes.Integracao.RepositorioTestes
+namespace LG.Treinamento.Testes.Integracao.RepositoriosTestes
 {
     public class DataBaseEmMemoria : System.IDisposable
     {
@@ -31,7 +27,7 @@ namespace LG.Treinamento.Testes.Integracao.RepositorioTestes
             sessionFactory = sessionFactory = Fluently.Configure(configurationHibernate)
                             .Mappings(m => m.FluentMappings
                                             .AddFromAssembly(assemblyContendoMapeamento))
-                                            .BuildSessionFactory();
+                            .BuildSessionFactory();
 
             session = sessionFactory.OpenSession();
 

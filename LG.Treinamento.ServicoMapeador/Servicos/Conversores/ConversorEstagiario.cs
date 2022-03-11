@@ -7,20 +7,13 @@ namespace LG.Treinamento.ServicoMapeador.Servicos.Conversores
 {
     public class ConversorEstagiario
     {
-        private readonly ConversorTurma conversorTurma;
-
-        public ConversorEstagiario(ConversorTurma conversorTurma)
-        {
-            this.conversorTurma = conversorTurma;
-        }
-
         public DTOEstagiario Converta(Estagiario objeto)
         {
             return new DTOEstagiario
             {
                 Id = objeto.Id,
                 Nome = objeto.Nome,
-                Turma = conversorTurma.Converta(objeto.Turma),
+                Turma = ConversorTurma.ConvertaTurmaSemEstagiarios(objeto.Turma),
                 Endereco = new DTOEndereco
                 {
                     Lote = objeto.Endereco.Lote,
@@ -37,6 +30,7 @@ namespace LG.Treinamento.ServicoMapeador.Servicos.Conversores
             {
                 Id = dto.Id,
                 Nome = dto.Nome,
+                Turma = ConversorTurma.ConvertaTurmaSemEstagiarios(dto.Turma),
                 Endereco = new Endereco
                 {
                     Lote = dto.Endereco.Lote,
